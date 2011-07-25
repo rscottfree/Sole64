@@ -1,0 +1,12 @@
+{
+  "name": "sole64",
+  "version": "1.0.6",
+  "description": "Simple Operating and Learning Environment",
+  "main": "sole64.html",
+  "scripts": {
+    "start": "reload"
+  },
+  "dependencies": {
+    "reload": "^3.2.0"
+  }
+}

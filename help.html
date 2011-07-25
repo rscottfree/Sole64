@@ -1,0 +1,698 @@
+<h1 style="text-align:center">SOLE 64 USER GUIDE</h1>
+<p>This guide is intented to help you through the basics of using SOLE 64, including writing, saving and loading programs.</p>
+
+<section id="help:topics">
+  <h3>TOPICS</h3>
+  <a onclick="s64.help.show('usercommands')">USER COMMANDS</a><br>
+  <a onclick="s64.help.show('programmingcommands')">PROGRAMMING COMMANDS</a><br>
+  <a onclick="s64.help.show('advancedtopics')">ADVANCED TOPICS</a><br>
+  <a onclick="s64.help.show('programmingbasics')">PROGRAMMING BASICS</a><br>
+  <!-- <a onclick="s64.help.show('exampleprograms')">EXAMPLE PROGRAMS</a><br> -->
+  <a onclick="s64.help.show('graphics')">PAINT GRAPHICS</a><br>
+  <a onclick="s64.help.show('3dgraphics')">3D GRAPHICS</a><br>
+</section>
+
+<section id="help:beginningtutorial">
+  <h2>BEGINNING TUTORIAL</h2>
+  <h3>Writing Your First Program</h3>
+  <p>Once you start SOLE 64, you can begin programming right away. READY?</p>
+  <p>1) Type <code>new</code> and hit enter.<sup>*</sup> This will clear the memory so we can start a new program.</p>
+  <p>2) Type <code>1 print('What did you do!?')</code> and hit enter. This enters some code at line 1.</p>
+  <p>3) And now let's run our program! Type <code>run</code> and hit enter.</p>
+  <p>You told the computer to print some text, so you should see that text printed out when you run the program. Now you will want to save your creation.</p>
+
+  <div class="footnote">
+    <p>*The <code>new</code> command will erase whatever program you have in memory, so if you have work in memory you do not want to lose, make sure you save it before you run this command.</p>
+  </div>
+
+  <h3>Saving Your Program</h3>
+  <p>To save your program, type <code>save myprogram</code> and hit enter.</p>
+  <p>That's it. You should get a confirmation that your file saved. To make sure the save really worked and to load your program later, continue reading in the next section.</p>
+  <div class="footnote">
+    <p>File names can only have letters, numbers and underscores in them.</p>
+  </div>
+
+  <h3>Loading Your Program</h3>
+  <p>Loading your program is as easy as saving it. Let's start out by clearing the memory.</p>
+  <p>Type <code>new</code> and hit enter.</p>
+  <p>Now when you type <code>run</code> nothing will happen because there is no program in memory.</p>
+  <p>Okay, now load the program you have saved.</p>
+  <p>Type <code>load myprogram</code> and hit enter.</p>
+  <p>You should see a message that says your program was loaded. Now let's run it.</p>
+  <p>Type <code>run</code> and hit enter.</p>
+  <p>The program you wrote before should now run.</p>
+
+  <h3>Summary</h3>
+  <p>In this tutorial you have learned how to use the <code>print</code> function to print text to the screen. Functions are the building blocks of programs. In the following sections you will learn how to use the built-in functions as well as create functions of your own.</p>
+</section>
+
+<section id="help:workingwithprograms">
+  <h2>Working with Programs</h2>
+  <p>In this section and subsequent sections, examples will be shown and quick explanations given. These tutorials are not meant to be comprehensive, but to give you a grasp on the tools you can use to write your own programs. So make sure you try to understand what the code is going; learn to read the code.</p>
+  <h3>Some Vocabulary</h3>
+  <p><b>Variable</b>: There are two types of variables, <i>strings</i> and <i>numbers</i>. Variables are like things your program can use.</p>
+  <p><b>Function</b>: Functions are tasks for the computer to perform. You can tell functions to use parameters to do stuff. For example, you can have a <code>cut</code> function and a <code>paper</code> variable, and you can pass the <code>paper</code> variable to your <code>cut</code> function as a parameter. And then your <code>cut</code> function can do someting with your <code>paper</code> variable, like cut it or something.</p>
+  <div class="footnote"><p>Blow your mind: You can pass variables to functions and you can also pass function to functions.</p></div>
+  <h3>The Program</h3>
+  <p>The building blocks of programs written on SOLE 64 are the functions <code>print</code> and <code>input</code>, which allow you, the programmer, to display text to the user and get user input.</p>
+  <p>Type in this program and run it.</p>
+  <div class="footnote">
+    <p>Remember, you can use the <code>new</code> command to clear memory in order to start a new program. To see what is in memory, use the <code>list</code> command.</p>
+  </div>
+  <p>
+    <code>10 print('What is your name?')</code><br>
+    <code>20 DEF getName(name)</code><br>
+    <code>30 print('Hello, ' + name)</code><br>
+    <code>40 END getName</code><br>
+    <code>50 input(getName)</code>
+  </p>
+  <p>This program asks the user what their name is, gets input from the user, then says hello to the user using the name the user entered. To do this, the print and input functions are used, as well as a user-created function called <code>getName</code>.</p>
+  <p>Notice that because line 30 is within the getName function, it is not run immediately when you run the program. Instead, that line will only be run when the getName function is called. And getName is not called until the user enteres something to satisfy the input function.</p>
+  <div class="footnote">
+    <p>User defined functions begin with <code>DEF</code> and end with <code>END</code>. In this example, we create a function called <code>getName</code> with one parameter called <code>name</code>. All this function does is print out the <code>name</code> that was passed in.</p>
+    <p>This program also uses the <code>input</code> function. This is a built-in function that asks for user input. Notice that the input function has one parameter passed to it, and in this case we are passing our user defined function, <code>getName</code>.</p>
+    <div class="footnote">
+      <p>Any parameter you pass to the <code>input</code> function must be a function. And this function must have at least one parameter. That parameter will be the text the user entered.</p>
+    </div>
+    <br>
+  </div>
+
+  <h2>Add a Function</h2>
+  <p>Add the following lines to your program.</p>
+  <p>
+    <code>60 DEF printSomeStuff(my_string, my_number)</code><br>
+    <code>70 print(my_string)</code><br>
+    <code>80 print(my_number)</code><br>
+    <code>90 END printSomeStuff</code><br>
+    <code>35 printSomeStuff('a string here', 34)</code>
+  </p>
+  <p>Run the <code>list</code> command and your program should look something like this:</p>
+  <p>
+    <code>
+      10 print('What is your name?')<br>
+      20 DEF getName(name)<br>
+      30 print('Hello, ' + name)<br>
+      35 printSomeStuff('a string here', 34)<br>
+      40 END getName<br>
+      50 input(getName)<br>
+      60 DEF printSomeStuff(my_string, my_number)<br>
+      70 print(my_string)<br>
+      80 print(my_number)<br>
+      90 END printSomeStuff
+    </code>
+  </p>
+  <p>Here we have added a new function called printSomeStuff, and that function takes two parmaeters, my_string and my_number. We then call that function within the getName function, and pass it a string and a number. Our new function simply prints out that string and number that we pass it.</p>
+  <div class="footnote">
+    <p>If you need to clean up the line numbering in your program, or you're running out of lines, you can use the <code>renumber</code> command. To renumber your program and separate each line of code by 5 lines, you would run <code>renumber 5</code>.</p>
+    <p>You can also insert lines anywhere in your program with the <code>insert</code> command. To insert 3 lines at line 30, you would run <code>insert 3 at 30</code>. If you have code on lines 30 and above, they will be shifted up 3 lines to make room for your inserted lines.</p>
+  </div>
+</section>
+
+<section id="help:usercommands">
+  <h2>SUMMARY OF USER COMMANDS</h2>
+
+  <h3 id="help:cls">cls</h3>
+  <p><code>cls</code></p>
+  <p>Clears the screen of text.<p>
+
+  <h3 id="help:clear history">clear history</h3>
+  <p><code>clear history</code></p>
+  <p>Clear the list of user history that can normally be accessed using the <code>history</code> command</p>
+
+  <h3 id="help:copy">copy</h3>
+  <p>If you're looking how to copy text on a line instead of lines in a program, click on <a onclick="s64.help.show('cutcopypaste')">this link to see the section on cut/copy/paste</a>.</p>
+  <p>
+    <code>copy 5 to 10</code> Copy line 5 to line 10<br>
+    <code>copy 5-10 to 20</code> Copy lines 5 through 10 to line 20<br>
+    <code>copy 5- to 23</code> Copy lines 5 through the end of the program to line 23<br>
+    <code>copy -5 to 8</code> Copy from the beginning of the program through line 5 to line 8<br>
+    <code>copy 5 to buffer 1</code> Copy line 5 to the first copy buffer<br>
+    <code>copy 2-12 to buffer 2</code> Copy lines 2 through 12 to copy buffer number 2
+  </p>
+  <p>Use the copy command to copy lines of code to other locations within your program or to a copy buffer. When you perform the copy command, the selected lines are inserted in at the line you specify. Any line of code at that line or any lines after it are shifted forward to make room for the copied lines.</p>
+  <p>If you specify a copy buffer, the lines of code are copied to this buffer for you to get later when you need them. You can access the copy buffers with <code>paste</code> command and the <code>listb</code> command. Copy buffers are places in memory where you can store code. If you copy code to a buffer that already has code in it, the old code will be overwritten by the new code.</p>
+
+  <h3 id="help:def">def</h3>
+  <p>
+    <code>def newFunction</code> Create a new function called newFunction and add it to the end of the program.
+  </p>
+  <p>This is a convenience function for generating the code for a new function, appending it to the end of your program, and puts you on the line so you can start adding code to that function right away. I create lots of functions in my programs and I got tired of typing the code to add a new function, so now you have <code>def</code>.</p>
+
+  <h3 id="help:delete">delete</h3>
+  <p>
+    <code>delete 1</code> Delete line 1 from memory<br>
+    <code>delete -3</code> Delete from the beginning of the program through line 3.<br>
+    <code>delete 5-12</code> Delete lines 5 through 12<br>
+    <code>delete 6-</code> Delete from line 6 through the rest of the program<br>
+    <code>del 7</code> Delete line 7
+  </p>
+  <p>The delete command deletes lines of code from memory. Use carefully. You can also use the shorter version of <code>del</code>.</p>
+
+  <h3 id="help:history">history</h3>
+  <p>
+    <code>history</code> List the history of user commands you have entered.
+  </p>
+
+  <h3 id="help:help">help</h3>
+  <p>
+    <code>help</code> Open the help documentation<br>
+    <code>help list</code> Open the help documentation for the command list
+  </p>
+  <p>You can use the help command to learn more about SOLE 64. If you specify a name of a command or topic, the help documentation will jump to that topic.</p>
+
+  <h3 id="help:insert">insert</h3>
+  <p>
+    <code>insert 5 at 10</code> Insert 5 blank lines at line 10 in memory<br>
+    <code>*10 print('hi')</code> Insert the given text at line 10
+  </p>
+  <p>Use insert to insert a specific amount of blank lines at a specific point in your program. The first number is the amount of lines to insert, and the second number is the line of code at which to insert those lines. If there is code currently at the line you specify to insert, that line of code and all lines after it will be renumber (shifted up) to make room for the inserted lines.</p>
+  <p>Additionally, you make a simple insert using the asterisk character (*) followed by the line number. This will insert your one line of code at the line specified. For example:<br>
+  <code>*10 print('hi')</code><br>
+  This will insert <code>print('hi')</code> at line 10, moving any code that might already be at line 10 to line 11.</p>
+
+  <h3 id="help:list">list</h3>
+  <p>
+    <code>list 5</code> List line 5 of the program<br>
+    <code>list 5-10</code> List lines 5 through 10<br>
+    <code>list 5-</code> List line 5 through the end of the program<br>
+    <code>list -5</code> List from the beginning of the program through line 5<br>
+  </p>
+  <p>List the lines of code currently in memory. You can also specify which lines you want to list, instead of listing all of them.</p>
+
+  <h3 id="help:listb">listb</h3>
+  <p>
+    <code>listb 2</code> This lists the lines of code currently stored in copy buffer 2
+  </p>
+  <p>Use the listb command to list the lines of code currently stored in the copy buffer you specify. The copy buffer number is required for this command.</p>
+
+  <h3 id="help:listf">listf</h3>
+  <p>
+    <code>listf</code><br>
+    <code>listf getName</code>
+    <code>listf name</code>
+  </p>
+  <p>List all the functions currently in memory. If you have user defined functions, this command will list the names of those commands. If you specify a user function after this command, it will list of the lines of code that make up that function. If you only remember the beginning of the function name, you can type that in and hit enter and the first match that can be found will be displayed. If you only remember part of the name, you can enter that and hit enter and a list of functions that include your search text anywhere in them will be displayed.</p>
+
+  <h3 id="help:load">load</h3>
+  <p>
+    <code>load</code> List out all the files saved locally<br>
+    <code>load $</code> Same as above: list all local programs<br>
+    <code>load myProgram</code>Loads myProgram from default device (8)<br>
+    <code>load myProgram,8</code> Same as first command<br>
+    <code>load roger@myprogram</code> Load the program called myProgram for the user roger from remote storage (device 9)</code><br>
+    <code>load roger@myprogram,9</code> Load the program called myProgram for the user roger from remote storage (device 9)</code><br>
+    <code>load roger,9</code> List all the programs that roger has saved remotely
+  </p>
+  <p>Loads a program into memory. For files on the default device (8), which is the local computer, you just specify the name of the file. If you are loading a file from the remote storage, you need to specify your username followed by the @ character. Any program currently in memory will be cleared. This is like running the <code>new</code> command. If you filename has a '@' in it, it is assumed you are loading it from the remote storage on the internet.</p>
+  <div class="footnote"><p>If you have downloaded a file to device 7 (as a file to your computer), then to load it you need to drag the file that you downloaded onto SOLE 64. Yes, actually drag and drop the file onto the SOLE 64 window. This functionality is experimental, and because dragging and dropping is not easy in all interfaces, I'm looking into other ways of loading separate files.</p></div>
+
+  <h3 id="help:move">move</h3>
+  <p>
+    <code>move 5 to 10</code> Move line 5 to line 10<br>
+    <code>move 5-8 to 12</code> Move lines 5 through 8 to line 12<br>
+    <code>move -8 to 17</code> Move from the beginning of the program to line 8 to line 17<br>
+    <code>move 8- to 15</code> Move lines 8 through the end of the program to line 15
+  </p>
+  <p>The move command is for moving lines of code around in your program. The command will remove the lines of code you specify and insert them at the line you specify. If there is already a line of code at the line you specify to move to, that line of code and all lines after it will be renumbered (shifted up) to make room for the inserted lines.</p>
+
+  <h3 id="help:new">new</h3>
+  <p>
+    <code>new</code>
+  </p>
+  <p>Clears the memory. Any lines of code currently in memory will be erased. Save any important work before running this command!</p>
+
+  <h3 id="help:paste">paste</h3>
+  <p>
+    <code>paste buffer 1 at 10</code> Paste the contents of copy buffer 1 to line 10 of the program<br>
+  </p>
+  <p>Paste allows you to take code you have used copied to the copy buffers and insert it into your current program. The first number you specify is the buffer number and the second number is the line of code at which you want to insert the code.</p>
+
+  <h3 id="help:printjscode">printjscode</h3>
+  <p>
+    <code>printjscode</code>
+  </p>
+  <p>This is a debug command that will print out the JavaScript version of your code. SOLE 64 basic is a library or extension of JavaScript and when it executes, your SOLE 64 basic code is translated to JavaScript. Running this command shows you what that JavaScript will look like.</p>
+
+  <h3 id="help:remove">remove</h3>
+  <p>
+    <code>remove myProgram</code> Remove the program named myProgram from the local disk (device 8)<br>
+    <code>remove roger@myprogram</code> Remove the program saved remotely (requires password)
+    <code>remove roger@myprogram,9</code> Remove the program saved remotely (requires password)
+  </p>
+  <p>This follows the same format as the load command. This will remove the given file from the local disk or remote file system. Please note: this will remove it without warning, so make sure you typed the right thing before you hit enter. To remove a remote file, use the same format you use to save a remote file. Also note that like saving a remote file, a password is required to remove the remote file; this will be the same password as was used to save the remote file.</p>
+
+  <h3 id="help:renumber">renumber</h3>
+  <p>
+    <code>renumber</code> Renumber the lines of code in memory going by ones, starting with the number 1<br>
+    <code>renumber 5</code> Renumber the lines of code in memory going by fives
+  </p>
+  <p>Renumber is useful for renumbering your lines of code to be more organized, and to leave space in between lines of code to put more lines of code.</p>
+
+  <h3 id="help:run">run</h3>
+  <p>
+    <code>run</code>
+  </p>
+  <p>Run the code that is currently in memory</p>
+
+  <h3 id="help:save">save</h3>
+  <p>
+    <code>save myprogram</code> Save your program<br>
+    <code>save myprogram,8</code> Save your program to device 8<br>
+    <code>save roger@myprogram</code> Save your program to device 9 (remote storage)<br>
+    <code>save roger@myprogram,9</code> Save your program to device 9 (remote storage)<br>
+    <code>save myprogram,7</code> Save your program to device 7 (as a file to your computer)
+  </p>
+  <p>The save command saves your program. You can use the <code>load</code> command to load it again. The save command takes your lines of code that are in memory and saves them to be loaded later. You can specify a device or not; if you do not specify a device, device 8 will be used. Device 8 is the default device, which is your local computer. Device 9 is the remote storage device. Device 7 is your local disk--or in other words, saving to device 7 will generate a file and download it to your computer. This file will probably be called "download". In order to load this file again, you can drag and drop it onto SOLE 64. (Device 7 is experimental.) If you the character '@' in the file name, SOLE 64 assumes you mean to save to the remove file system because this character is only allowed when saving to the remote file system.</p>
+  <div class="footnote">
+    <p>File names can only have letters, numbers and underscores in them.</p>
+  </div>
+  <div class="footnote">
+    <p>When saving to the remote storage, notice that you have to specify an author followed by @. Programs uploaded to remote storage are public, so specifying an author allows multiple people to have the same program name. Also, when you save to remote storage (device 9), you will be prompted to enter a password. If you have saved this same filename to remote storage before, you must use the password you used the first time; otherwise, you may enter whatever password you want. (But don't forget your password!) Uploading to remote storage requires an internet connection.</p>
+  </div>
+
+
+  <h3 id="help:search">search</h3>
+  <p>
+    <code>search "print"</code> Search for the text "print" in the program stored in memory</code><br>
+    <code>search "getName" in memory</code> Search for the text "getName" in the program stored in memory<br>
+    <code>search "food" in history</code> Search for the text "food" in the history of user commands<br>
+    <code>search "dust" in buffers</code> Search for the text "dust" in the copy buffers
+  </p>
+  <p>If you are trying to find where a certain string occurs in memory, history, or the copy buffers, you can use the search command to do so. Depending on where you specify you want to search, results will be returned if the search finds the text you specified.</p>
+
+  <h3 id="help:settheme">settheme</h3>
+  <p>
+    <code>settheme</code>
+  </p>
+  <p>When you run this command, you will get a list of themes to chose from. You can use the settheme command to change the look of SOLE 64. This command will restart SOLE 64, but do not be alarmed, anything saved in memory is always restored when SOLE 64 restarts.</p>
+
+  <h3 id="help:setfontsize">setfontsize</h3>
+  <p>
+    <code>setfontsize</code>
+  </p>
+  <p>Running this command will allow you to enter a number for your font size; just enter the number and press enter. The font size must be given as a whole number and it must be greater than 0. This number is equal to the hight of a character in pixels. Changing your font size will reload your screen just like setting your theme.</p>
+</section>
+
+<section id="help:programmingcommands">
+  <h2>SUMMARY OF PROGRAMMING COMMANDS</h2>
+
+  <h3 id="help:delay">delay functionality</h3>
+  <p>
+    <code>@2000:print('hi')</code> Print 'hi' after 2000 milliseconds (2 seconds)<br>
+    <code>@3500:paintCircle(100, 100, 30)</code> Draw a circle after three and a half seconds (3500 milliseconds)
+  </p>
+  <p>The delay ability allows you to run some code after a certain number of milliseconds. You can print something, call a function, draw a circle--whatever you want as long as it is a single command. To make this work, start the line with <code>@</code> then enter a number of milliseconds for the delay, then <code>:</code> and then the code you want to run.</p>
+  <div class="footnote">
+    <p>The delay functionality is asynchronous. This means that any lines of code after the line with the delay function will be executed right away; other code will not wait for the code passed to the delay function to finish. Take this program, for example:</p>
+    <p>
+      <code>10 print('one') // this will print first</code><br>
+      <code>20 @2000: print('two') // this will print third</code><br>
+      <code>30 print('three') // this will print second</code>
+    </p>
+    <p>The output of this program would be:</p>
+    <p>
+      <code>one</code><br>
+      <code>three</code><br>
+      <code>two</code>
+    </p>
+  </div>
+
+  <h3 id="help:clear">clear</h3>
+  <p>
+    <code>clear()</code> Clear the screen
+  </p>
+  <p>The clear command is used to clear the screen of text. This is often useful if you want your program to start out with a clean screen.</p>
+
+  <h3 id="help:get">get</h3>
+  <p>
+    <code>get('myname', processMyName)</code> Loads the value labeled 'myname' and passes that value to the user-defined function <code>processMyName</code>.
+  </p>
+  <p>The get function is for loading data you have saved using the <code>put</code> function. (See more about the put function below.) The get function is asynchronous, meaning you need to provide a callback function to receive the result of this function. (See more about the asynchronous function in the note below, next to the put function description.) You can store any variable you want, and when you get it with the get command, it will come back exactly as you saved it. In the example here, whatever was saved as 'myname' will be passed to the user-defined processMyName function. That function might look like this:<br>
+  <code>
+    10 DEF processMyName(my_name)<br>
+    20 print(my_name)<br>
+    30 END processMyName
+  </code>
+  </p>
+
+  <h3 id="help:include">include</h3>
+  <p>
+    <code>include(myProgramName, callback)</code> Load a local program and call the callback<br>
+    <code>include(myProgramName)</code> Load a local program without a callback
+  </p>
+  <p>With this command you can include another program within the current program. Maybe you have a program that has some useful functions in it--you can include this program within many other programs so you don't have to copy and paste lots of code or have duplicate code in different programs. You can include a callback function that will be called once the included program has finished loading. If you need to make sure that the program has fully loaded (like before you go calling functions from the included program) you should use this callback function.</p>
+
+  <h3 id="help:input">input</h3>
+  <p>
+    <code>input(myFunction)</code>
+  </p>
+  <p>The input command is used to get user input. The input command takes one parameter, a function. This is generally a user-defined function, but it could also be any of the print functions, although that is less helpful.</p>
+  <p>Any user-defined function that is passed to input must itself accept one parameter. This parameter will be the text the user inputed. So you can create a function that accepts some text (the user input) and you can do something with that input.</p>
+
+  <h3 id="help:poke">poke</h3>
+  <p>
+    <code>poke('bg', 'blue')</code> Change background color to blue<br>
+    <code>poke('fg', '#000000')</code> Change the foreground color to black<br>
+    <code>poke('border', '#ffffff')</code> Change the border to white<br>
+    <code>poke('blink', 200)</code> Set the cursor blink rate to 200 milliseconds<br>
+    <code>poke('tts', true)</code> Turn on text-to-speech<br>
+    <code>poke('tts_enqueue', true)</code> Queue the text-to-speech instead of interrupting it<br>
+    <code>poke('tts_rate', 1.5)</code> Set the speech rate to 1.5
+  </p>
+  <p>This command helps the user change certain system properties not otherwise easily accessible.</p>
+  <div class="footnote">
+    <p>When specifying colors, you can use CSS color names or Hexadecimal colors (sometimes called a Hex color). For a list of CSS color names, <a target="_blank" href="http://www.w3schools.com/cssref/css_colornames.asp">see this list on w3schools.com.</a></p>
+    <p>Hex colors start with a # and are typically followed by 6 digits. The first two digits represent the amount of RED color present, the third and fourth represent the amount of GREEN color, and the last two digits represent the amount of BLUE color. And these amounts are in hex format, meaning the lowest amount is 0 (zero) and the highest is f. E.g. on one end you have #000000 (black) and on the other side of the spectrum you have #ffffff (white). For more information about hex colors, <a target="_blank" href="http://www.w3schools.com/cssref/css_colors.asp">see this w3schools page about them</a>.</p>
+  </div>
+
+  <h3 id="help:prin">prin</h3>
+  <p>l
+    <code>prin('hi')</code> Prints the text 'hi' to the screen<br>
+    <code>prin(10)</code> Prints the number 10 to the screen
+  </p>
+  <p>The prin command is like the print command except that it does not create a new line after it is done printing your text to the screen This means if you use the prin command, the cursor will end up at the end of the text you printed, instead of on a new line below the text you printed. This command will not overwrite the current line, but append to the end of the current line. Be careful though, using the <code>print</code> command after this command will erase anything you printed (because <code>print</code> <i>does</i> overwrite the current line).</p>
+
+  <h3 id="help:print">print</h3>
+  <p>
+    <code>print('hello there')</code> Prints the text 'hello there'<br>
+    <code>print(10 + 2)</code> Prints the number 12 to the screen<br>
+    <code>print(my_name)</code> Prints the value of the variable my_name to the screen. So if the value of my_name were 'Roger', the text 'Roger' would be printed to the screen<br>
+    <code>print('Hello, my name is ' + my_name)</code> If the value of my_name is 'Roger', the text 'Hello, my name is Roger' would be printed to the screen</br>
+    <code>print("Also okay")</code> Prints the text 'Also okay' to the screen.
+  </p>
+  <p>The print command prints text to the screen. You can pass the print command a string, a number, a variable, or an expression, like 31+2 or combination of string and variable. After each print command, a new line is created. Also, you can use single quotes or double quotes to specify text within the print command.</p>
+
+  <h3 id="help:printc">printc</h3>
+  <p>
+    <code>printc('I am centered')</code> Prints the text 'I am centered' in the center of the screen.
+  </p>
+  <p>This is just like the print command except it will print to the center of the screen, meaning all printed text will be center aligned.</p>
+
+  <h3 id="help:printr">printr</h3>
+  <p>
+    <code>printr('Hey, over here on the right!')</code> Prints out the desired text on the right of the screen, or right aligned
+  </p>
+  <p>Just like the print command except it right aligns the given text.</p>
+
+  <h3 id="help:put">put</h3>
+  <p>
+    <code>put('mysavedata', my_name, doneSaving)</code> Saves the variable <code>my_name</code> to the computer under the name 'mysavedata', and calls the user function doneSaving, when the computer is done saving the data.<br>
+    <code>put('mysavedata', my_name)</code> Saves the variable like the first example, but does not call a user function.<br>
+    <code>put('mysavedata', 'a new string')</code> Saves the given string under the name 'mysavedata'.
+  </p>
+  <p>It may be useful to save some information within your program. The put command saves a user-defined variable to the computer, giving it a name so it can be loaded again later. This is an asynchronous function, so you can give it a callback to be notified when the computer is done saving. Also see the <code>get</code> command.</p>
+  <div class="footnote">
+    <p>An asynchronous function is one that does not wait for its tasks to finish before telling your program to move on to the next function or command. For example:<br><br>
+      <code>
+        10 put('mynametosave', my_name)<br>
+        20 print('hi there!')<br>
+      </code><br>
+      The <code>put</code> command is asynchronous. This program will save something to the computer and then print something to the screen. Because <code>put</code> does not wait for things to finish before letting the program move on, the line that prints 'hi there!' to the screen may run before <code>my_name</code> is actually saved.
+    </p>
+    <p>If you need to make sure that the next line runs only after you are done saving, you need to pass a callback function. A callback function is a function you define that is called when an asynchronous function is done processing its tasks. In this example, adding a callback function might look like this:<br><br>
+      <code>
+        10 put('mynametosave', my_name, doneSavingName)<br>
+        20 print('hi there!')<br>
+        30 DEF doneSavingName()<br>
+        40 print('done saving the name')<br>
+        50 END doneSavingName<br>
+      </code>
+    </p>
+  </div>
+  <h3 id="help:random">random</h3>
+  <p>
+    <code>random(1, 10)</code>
+  </p>
+  <p>The random command will return a number between the two numbers that you give it. So <code>random(1, 10)</code> will return a whole number between 1 and 10 inclusive, meaning 1 and 10 are also possibilities.</p>
+  <h3 id="help:range">range</h3>
+  <p>
+    <code>range(1, 10)</code> Return list with the numbers 1 through 10<br>
+    <code>range(1, 10, 2)</code> Return list with the numbers 1 through 10, going by 2s, e.g. [1, 3, 5, 7, 9]
+  </p>
+  <p>Range is handy for quickly getting a list of numbers.</p>
+</section>
+
+<section id="help:advancedtopics">
+<h2>ADVANCED TOPICS</h2>
+<h3 id="help:cutcopypaste">Cut/Copy/Paste</h3>
+<p>There are two different ways to cut or copy text. We'll start with the keyboard version:</p>
+<p>To copy some text, hold down the SHIFT key and then use the right and left arrow keys to select the text you want to cut or copy. Once you have highlighted the text you want to copy, you can hold down the CONTROL (CTRL) key and tap the C key. This will copy the text. If instead you want to cut the text (remove it and save it so you can paste it somewhere else later), you would hold down the same CONTROL key and then tap the X key. If you do this, you will see that the text you selected is removed.</p>
+<p>If you want to paste the text you just copied or cut, you hold down the CONTROL key and tap the V key. This will paste the text wherever you have your cursor.</p>
+<p>If you have some text selected, but decide you don't want to copy or cut it, just let up on the SHIFT key and hit any other key and the highlight will disappear.</p>
+<p>The second option for copying text is with the mouse. Simply hold down the CONTROL key and click the line of text you want to copy. This will copy the whole line, and make it ready for you to paste it. You use the same keys to paste as you did before, holding down the CONTROL key and tapping the V key. This will paste it where your cursor is located.</p>
+<p>If you don't want to copy the whole line, you will have to use the keyboard option of copying text, positioning your cursor with the arrow keys, holding down SHIFT while you select the text you want.</p>
+
+<h3>Using Tab to Get Stuff Done</h3>
+<p>In SOLE 64 you can use the tab character at certain times in order to auto-complete commands. This section will show you how.</p>
+<h3 id="help:tabhistory">Tab for History</h3>
+<p>When you run the <code>history</code> command, you will notice that by each command in your history there is a number. You can use this number to then run the command. Say the number of the command in history is 5. To run that command without typing the whole thing in again, type this:</p>
+<p><code>!5</code> and then hit the tab key.</p>
+<p>You should notice that the command associated with the number 5 will replace the text you have entered. Now you can hit enter to run that command.</p>
+<p>If you do not want to look up the number for a command in history, but you know what the command started with, you can auto-complete by using the first characters of the command.</p>
+<p>Type <code>!his</code> and then hit the tab key. The last command you ran that began with 'his' will replace the text you have entered. You can then hit enter to run that command</p>
+
+<h3 id="help:tabline">Tab Line Numbers</h3>
+<p>If you enter the number of a line of code in your program and hit tab, the line is completed with the line from your program. If there is no line of code entered for that line number, the cursor simply advances a space, ready for you to start coding. This is useful if you need to edit a line of code.</p>
+
+<h3 id="help:arrowhistory">Up and Down Arrow Your History</h3>
+<p>You can use the up and down arrows on your keyboard to scroll through history. The up arrow moves you back in time in your history, and the down arrow moves you forward in time. Once the history command you want is under your cursor, simply hit enter to run that command.</p>
+
+<h3 id="help:deletemore">Delete Like You Mean It</h3>
+<p>Deleting one character at a time is okay, I guess, but when you really need to ax some words quickly, you can use the CTRL (control) key and the BACKSPACE or DELETE key to delete whole words at a time. Holding down the CTRL key while tapping the BACKSPACE or DELETE key will delete one word at a time.</p>
+<p>Or maybe you want to delete a whole line at once? Just hold down the CTRL key and tap the 'd' key, and the entire line you are on will be deleted.</p>
+
+<h3 id="help:movemore">Move by the Word</h3>
+<p>Similar to the ability to delete whole words at a time, you can also navigate a line whole words at a time. Hold down the CTRL (control) key and use your right or left arrow keys to move one word to the right or left.</p>
+</section>
+
+<h3 id="help:quicksave">Quick Save</h3>
+<p>If you find yourself saving frequently (and you should!), you might get tired of typing in the save command or finding it in your history. There is a shortcut: Ctrl-s. Hold down the CONTROL (Ctrl) key and tap the 's' key, and the last save command you typed in will appear. Then all you have to do is hit enter.</p>
+</section>
+
+<section id="help:programmingbasics">
+<h2>PROGRAMMING BASICS</h2>
+<p>This section will go through some of the basic topics in programming. In general, it will show you about variables, how to store text and numbers, how to manipulate text and numbers, how to store arrays of text and numbers, how to loop through your arrays, and how to make conditional statements. It will also explain about functions and objects, which is to say you will learn how to define tasks you want the computer to perform, and you will learn how to define objects that your functions can work with.</p>
+<h3 id="help:functionsandobjects">Summary of Functions and Objects</h3>
+<p>In SOLE 64, functions are your verbs, the action phrases to get stuff done. A function might be called <code>goNorth</code>, or <code>eatFood</code>. You can name your functions whatever you want. The normal style for function names is to use camel case, where the first letter of each word is capitalized except for the first word. A camel case function name in SOLE 64 might look like this: <code>eatSomeFoodThenTakeANap</code>.</p>
+<p>Functions also control the flow of your program. They take the user from one task to another task. Once one function finishes, it generally calls another function. Perhaps you have a program that adds one to every number the user enters. You would have a function that got user input, that would call another function that added one to the number the user inputed, print that new number out, then call the function again that asks for user input. That would be an example of a simple flow from one function to another.</p>
+<h3 id="help:morefunctions">More on Functions</h3>
+<p>As noted, functions are tasks you can ask the computer to perform; they are blocks of code that do something specific or general--it is up to you. They can take parameters and they can return parameters. The basic syntax of a function might look something like this:</p>
+<p><code>
+  10 DEF eat(what, with_what)<br>
+  20 print('I am eating ' + what + ' with a ' + withWhat)<br>
+  30 return 'all done'<br>
+  40 END eat<br>
+</code></p>
+<p>This code defines a function called eat. Eat takes two parameters, what and with_what. Inside the function, line 20 prints out some text, including the parameters that were passed in. Line 30 returns a string. The last line, line 40, ends the function.</p>
+
+<h3 id="help:variables">Variables</h3>
+<p>Variables are the basic things you can pass around your program and functions, and your functions can in turn do things with those things, those variables. You can declare a new variable like this:</p>
+<p><code>var my_new_variable = 'hi'</code></p>
+<p>This creates a new variable and sets it's value to a string, 'hi'. If you do not set the value of a variable, it will automatically get the value of undefined. Undefined is a special value given to a variable that is not defined. Like this:</p>
+<p><code>var my_new_variable</code></p>
+<p>When variables are passed into functions, you can use them within that function and then return them if you like. Variables are great for passing around information.</p>
+
+<h3 id="help:arrays">Arrays</h3>
+<p>Arrays are for storing related variables. You can create an array of any number of variables. An array of things to eat might look like this:</p>
+<p><code>var my_array = ['pie', 'oranges', 'honey', 'vegetable oil']</code></p>
+<p>Some things you can do with an array:</p>
+<p><code>print(my_array[0])</code> Print the first item in your array. (Arrays item numbering always starts with 0.)</p>
+<p><code>print(my_array.length)</code> Print the lengh of your array.</p>
+<p><code>my_array[3] = 'something'</code> Set the 4th item (remember it is numbered starting with 0) to the string 'something'.</p>
+<p><code>my_array.push(22)</code> Add the value 22 to the end of the array.</p>
+<p><code>print(my_array.pop())</code> Remove and print the last item in the array.</p>
+<p><a target="_blank" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array">You can find a lot of great info and more ways to use arrays through this link.</a> This will take you to the Mozilla Developer Network where there is great documentation on everything JavaScript.</p>
+
+<h3 id="help:objects">Objects</h3>
+<p>Objects are like dictionaries. They are made of of words, and definitions for those words. Or in other words, they are groups of keys and values, where one key points to one value. For example:</p>
+<p><code>var my_object = { 'my key': 'my value', 'another': 20 }</code></p>
+<p>Notice that the keys and values can be either strings or numbers. You access the values within your object like this:</p>
+<p><code>print(my_object['my key'])</code> will print out 'my value'</p>
+<p><code>print(my_object['another'])</code> will print out 20</p>
+<p>You can set keys and their values like this:</p>
+<p><code>my_object['third key'] = 'my third value'</code></p>
+<p>You can also push objects onto arrays just like any other variable.</p>
+<p>Objects are the building blocks of programming; use them well. Any information you need to store can be stored in an object, and if you need to keep some objects together, either put them in another object (the value of a key can be an object) or in an array.</p>
+
+<h3 id="help:comments">Comments</h3>
+<p>You can use comments to leave notes for yourself in the code. Comments have no effect on how your code runs. You can use them like this:</p>
+<p>
+  <code>print('some stuff') // My comments here</code><br>
+  <code>print('more') /* another comment */</code>
+</p>
+<p>When you use // to comment, everything after the // is commented. If you use /* */, everything between the /* and the */ is commented.</p>
+
+<h3 id="help:if">if Statement</h3>
+<p>If statements are for when you want something to happen only <i>if</i> a certain condition is met.</p>
+<p>
+  <code>if (your_name == 'Biff') {</code><br>
+  <code>&nbsp;&nbsp;print('Hi Biff')</code><br>
+  <code>}</code>
+</p>
+<p>This will only print 'Hi Biff' if the variable your_name is equal to 'Biff'. Note the use of the double equals (==). When assigning variables, you use the single equals. When comparing them to see if they are equal, use the double equals. You can also use != which means not equal to. Or in the case of numbers you can use < and > to mean less than or greater than, or <= and >=, which means less than or equal to and greater than or equal to.</p>
+
+<h3 id="help:else">else Statement</h3>
+<p>You can use the else statement along with the if statement. So if something is true, do one thing, else (otherwise) do something else.</p>
+<p>
+  <code>if (your_name == 'Biff') {</code><br>
+  <code>&nbsp;&nbsp;print('Hi Biff')</code><br>
+  <code>} else {</code><br>
+  <code>&nbsp;&nbsp;print('You are not Biff')</code><br>
+  <code>}</code>
+</p>
+<p>This can also be written like this:</p>
+<p>
+  <code>if (your_name == 'Biff') print('Hi Biff')</code><br>
+  <code>else print('You are not Biff')</code>
+<p>So if the condition in the if statement is not true, it will run the code that is in the else statement.</p>
+
+<h3 id="help:loop">Loops</h3>
+<p>Remember arrays? Arrays are lists of variables. Sometimes it's really useful to be able to loop through an array. Say you have an array of fruits and you want to print out each fruit name. You can do that pretty easy with loops. Here is an example.</p>
+<p>
+  <code>var fruits = ['Apple', 'Pear', 'Peach', 'Kumquat']</code><br>
+  <code>for(var fruit in fruits) print(fruit)</code>
+</p>
+<p>The <code>for</code> means you're starting a loop (often called a for loop), and inside you say <code>var fruit in fruits</code> which means go through your list of fruits and for every item, assign it to the temporary variable <code>fruit</code> and print that variable out, then move on to the next item in the array of fruits.</p>
+<p>If you have to do more things within your loop, you can use the curly braces like you do for the <code>if</code> statement. Like this:</p>
+<p>
+  <code>var fruits = ['Apple', 'Pear', 'Peach', 'Kumquat']</code><br>
+  <code>for(var fruit in fruits) {</code><br>
+  <code>&nbsp;&nbsp;&nbsp;prin('I like ')</code><br>
+  <code>&nbsp;&nbsp;&nbsp;print(fruit)</code><br>
+  <code>}</code>
+</p>
+
+</section>
+
+<!-- <section id="help:exampleprograms">
+  <h2>EXAMPLE PROGRAMS</h2>
+  <p>Right now there are two example programs you can download, one is called 'example' and the other 'guess'. These programs are there as a starting point for you to poke around and see how things work. You are encouraged to download them, edit them and save them to your S64.</p>
+  <p>You can download and run these programs using the <code>load</code> command and the <code>run</code> command. These programs are saved on the internet, but you can load them in your S64 and save them, edit them, do whatever. For example, type the following.</p>
+  <p>
+    <code>load sole64@example</code><br>
+    <code>run</code>
+  </p>
+  <p>This should load the program (it might take a few seconds to download) and then when you type the <code>run</code> command it will run the program. There is also a guessing game program. To load and run it, type:</p>
+  <p>
+    <code>load sole64@guess</code><br>
+    <code>run</code>
+  </p>
+  <p>To view the contents of a program you have loaded, type <code>list</code> or <code>ls</code>. You can save them to your S64 like this:</p>
+  <p>
+    <code>save myExample</code>
+  </p>
+  <p>And of course you can name it whatever you want. To view the list of programs you have saved, you run the <code>load</code> command. You can do that two ways:</p>
+  <p>
+    <code>load $</code><br>
+    <code>load</code>
+  </p>
+  <p>Either way works.</p>
+</section> -->
+
+
+<section id="help:graphics">
+  <h2>PAINT GRAPHICS</h2>
+  <p>SOLE 64 provides some basic painting functions you can use to draw shapes on the screen.</p>
+
+  <h3 id="help:setpaintcolor">setPaintColor</h3>
+  <p>
+    <code>setPaintColor('white')</code> Set the drawing color to white.
+  </p>
+  <p>The setPaintColor command is used to change the color that is used to draw whatever you are going to draw. If you want to draw a white circle you first have to set the color to white. If you don't set a color, the color black will be used.</p>
+
+  <h3 id="help:paintcircle">paintCircle</h3>
+  <p>
+    <code>paintCircle(100, 100, 20)</code> Draw a circle at location (100, 100), with a diameter of 20.<br>
+    <code>paintCircle(100, 100, 20, true)</code> Draw a filled circle.
+  </p>
+  <p>The paint circle commands draws circles! The first two numbers in the function make up the location you want to draw your circle at; this is the center of your circle. The first number is the x coordinate (the number of pixels from the left side of the screen) and the second number is the y coordinate (the number of pixels from the top of the screen). The third number is the diameter of the circle (the distance from one side of the circle to the opposite side of the circle). If you set the last parameter to true, it will draw a filled circle instead of just the outline.</p>
+
+  <h3 id="help:paintoval">paintOval</h3>
+  <p>
+    <code>paintOval(100, 100, 30, 50)</code> Draw an oval at location (100, 100), with a width of 30 and a height of 50.<br>
+    <code>paintOval(100, 100, 30, 50, true)</code> Draw a filled oval.
+  </p>
+  <p>The paint oval command draws an oval (a.k.a. ellipse), with a center give in the first two parmeters, and a width and height given in the second two parameters. The last parameter can be set to true in order to draw a filled oval.</p>
+
+  <h3 id="help:paintline">paintLine</h3>
+  <p>
+    <code>paintLine(100, 50, 200, 100)</code> Draw a line from (100, 50) to (200, 100)
+  </p>
+  <p>Draws a simple line with the specified width. The first two numbers are the starting point of the line, and the next two numbers are the end point of the line.</p>
+
+  <h3 id="help:paintangleline">paintAngleLine</h3>
+  <p>
+    <code>paintAngleLine(100, 100, 20, 55)</code> Draw a line with a center at (100, 100), 20 pixels long, at an angle of 55 degrees
+  </p>
+  <p>Draw lines at a certain angle. The first two numbers is the location (the center of the line), the third number is the length of the line. The fourth is the angle of the line (which is a number from 0 to 360).</p>
+  <div class="footnote"><p>About angles: An angle of 0 is a flat, horizontal line. An angle of 90 is a straigh up and down line. You can think of angles as the points on the outside of a circle. You start at 0 and move around the circle until you come to 360, which is back to the beginning (meaning 360=0). If you set an angle of 360, it would look the same as setting an angle of 0. Or an angle of 390 would look the same as an angle of 30. Go ahead, try it out.</p></div>
+
+  <h3 id="help:paintpath">paintPath</h3>
+  <p>
+    <code>paintPath([[100, 50], [150, 100], [200, 50]], 2)</code> Draw a path following the points given.
+  </p>
+  <p>Draw a series of lines, or a path, with the given points to follow. The first parameter in the function is a list of lists. This specifies the locations. Each location is a list with two numbers, the x and the y coordinates. In the above example, we give three points, (100, 50), (150, 100), (200, 50). When you connect the dots, you get a path that looks like the letter V.</p>
+
+  <h3 id="help:setpaintwidth">setPaintWidth</h3>
+  <p>
+    <code>setPaintWidth(5)</code> Set the line width that you paint at to 5.
+  </p>
+  <p>This sets the line width for painting. Once you set the line width, any graphics calls like paintCircle, paintLine, and paintPath, that come after it will use this line width when they are painted.</p>
+
+</section>
+
+
+<section id="help:3dgraphics">
+  <h2>3D GRAPHICS</h2>
+  <p>SOLE 64 provides some basic functions for drawing and animating 3D shapes. This functionality is provided by Three.js, a 3D rendering library.</p>
+
+  <h3 id="help:setcolor">setColor</h3>
+  <p>
+    <code>setColor(0xffffff)</code> Set the drawing color to white.<br>
+    <code>setColor(0xff0000)</code> Set the color to red<br>
+    <code>setColor(0x000000)</code> Set color to black
+  </p>
+  <p>The setColor command is used to change the color that is used to draw whatever you are going to draw. If you want to draw a red cube you first have to set the color to red. If you don't set a color, the color red will be used.</p>
+
+  <h3 id="help:cube">cube</h3>
+  <p>
+    <code>cube(100, 100, 100)</code> Create a cube
+  </p>
+  <p>This creates a cube object. The first parameter is the cube width, the second the cube height, and the third the cube depth. Note that these numbers do not translate to number of pixels, but generic units within the 3D space. Also, this command, like the other 3D drawing commands, will not immediately draw the object to the screen when it is created. This function simply gives you back a variable that represents the cube object. To display it, run the <code>show</code> command, passing in the newly created cube object as the only parameter, like this:</p>
+  <p>
+    <code>10 var c = cube(100, 100, 100)</code><br>
+    <code>20 show(c)</code>
+  </p>
+  <p>
+    To position a cube, use its position property, like <code>c.position.x = 100</code> or <code>c.position.y = 150</code>.
+  </p>
+  <p>
+    To set the rotation of the cube, use the rotation property, like <code>c.position.rotation.x = 50</code>. Other rotation properties include <code>y</code> and <code>z</code>. The position property also supports the <code>z</code> property.
+  </p>
+
+  <h3 id="help:sphere">sphere</h3>
+  <p>
+    <code>sphere(100, 20, 20)</code> Create a sphere object with a radius of 100, 20 segments in the width and 20 segments in the height.
+  </p>
+  <p>Creates a sphere object in 3D space. The first parameter is the radius, and the next two, the number of segments that run vertically and horizontally. As with the cube command and other 3D commands, you must pass this to the <code>show</code> command to display it to the screen.</p>
+
+  <h3 id="help:cylinder">cylinder</h3>
+  <p>
+    <code>cylinder(70, 70, 200, 20)</code> Create a cylinder object with a top radius of 70, a bottom radius of 70, a height of 200, and 20 segments.
+  </p>
+  <p>A cylinder. You can set the bottom or top radius to 0, and the segments to 4 to draw a pyramid.</p>
+
+  <h2>ANIMATING 3D OBJECTS</h2>
+  <p>In order to animate your 3D objects you need to create a function within your program, and pass it to the animation system in SOLE 64. Here is an example of how you might do that.</p>
+  <p>
+    <code>10 clearGraphics()</code><br>
+    <code>20 var c = cube(100, 100, 100)</code><br>
+    <code>30 show(c)</code><br>
+    <code>40 DEF update()</code><br>
+    <code>50 c.rotation.x += 0.01</code><br>
+    <code>60 END update</code><br>
+    <code>70 startAnimation(update)</code>
+  </p>
+  <p>This quick program clears the graphics, draws a cube, and then creates a function called update. This function is passed to the animation system with the startAnimation() function. Now, the animation system will call your update function as much as 60 times per second (slower, depending on the speed of your computer). You can use the stopAnimation() function to stop the animation, or clearGraphics() to clear all the graphics, or use the <code>stop</code> command or the keyboard shortcut for the stop command Control-q, which trys to halt the program that is currently running and clears all graphics.</p>
+
+</section>

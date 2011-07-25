@@ -1,0 +1,22 @@
+{
+	"manifest_version": 2,
+	"name": "SOLE 64",
+	"author": "",
+	"description": "A Simple Operating and Learning Environment to learn programming",
+	"version": "0.1.0.5",
+	"app": {
+		"background": {
+			"scripts": ["background.js"]
+		}
+	},
+	"icons": {
+		"16": "icon16.png",
+		"128": "icon128.png"
+	},
+    "permissions": [
+        "https://sole64backup.appspot.com/*",
+        "unlimitedStorage",
+        "tts",
+		"storage"
+    ]
+}
